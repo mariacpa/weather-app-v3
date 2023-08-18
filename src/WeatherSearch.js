@@ -43,7 +43,7 @@ export default function WeatherSearch() {
       <div>
         {form}
         <ul>
-          <li>{city}</li>
+          <li>City: {city}</li>
           <li>Temperature: {weather.temperature}°C</li>
           <li>Humidity: {weather.humidity}%</li>
           <li>Wind: {weather.wind} km/h</li>
