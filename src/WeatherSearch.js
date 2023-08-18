@@ -1,11 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 export default function WeatherSearch() {
-  function handleSubmit(response) {
-    alert(response.data.main.temp);
+  const [city, setCity] = useState("");
+  const [loaded, setLoaded] = useState(false);
+  const [weather, setWeather] = useState({});
+
+  function showTemperature(response) {
+    setLoaded(true);
+    setWeather({
+      temperature: Math.round(response.data.main.temp),
+      humidity: Math.round(response.data.main.humidity),
+      wind: Math.round(response.data.wind.speed),
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
+    });
   }
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=cali&appid=cb286bad3607984b41ed10c8de5cf00e&units=metric`;
-  axios.get(url).then(handleSubmit);
-  <h2>Hola</h2>;
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=cb286bad3607984b41ed10c8de5cf00e&units=metric`;
+    axios.get(url).then(showTemperature);
+  }
+
+  function handleChange(event) {
+    setCity(event.target.value);
+  }
+
+  let form = (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="search"
+        placeholder="Type the name of the city"
+        onChange={handleChange}
+      ></input>
+      <input type="submit" value="Submit"></input>
+    </form>
+  );
+
+  if (loaded) {
+    return (
+      <div>
+        {form}
+        <ul>
+          <li>Temperature: {weather.temperature}°C</li>
+          <li>Humidity: {weather.humidity}%</li>
+          <li>Wind: {weather.wind} km/h</li>
+          <li>Description: {weather.description}</li>
+          <li>
+            <img
+              src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}
+              alt="weather icon"
+            />
+          </li>
+        </ul>
+      </div>
+    );
+  } else {
+    return form;
+  }
 }
