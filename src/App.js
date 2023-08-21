@@ -1,16 +1,16 @@
 import React from "react";
-import WeatherSearch from "./WeatherSearch";
+import Weather from "./Weather";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <div classname="container">
-        <header className="App-header">
-          <h1>Weather App</h1>
-          <WeatherSearch />
+        <header></header>
+        <div>
+          <Weather />
           <button classname="btn btn-primary">Hello</button>
-        </header>
+        </div>
         <footer className="App-footer">
           <a
             href="https://github.com/mariacpa/weather-app-v3"
