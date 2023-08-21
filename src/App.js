@@ -9,7 +9,6 @@ function App() {
         <header></header>
         <div>
           <Weather />
-          <button classname="btn btn-primary">Hello</button>
         </div>
         <footer className="App-footer">
           <a

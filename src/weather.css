@@ -1,0 +1,38 @@
+.Weather h1 {
+  font-family: "Poppins", sans-serif;
+  margin-top: 20px;
+  font-size: 48px;
+}
+.Weather li {
+  list-style-type: none;
+}
+
+.Weather ul {
+  padding: 0;
+}
+
+.Weather {
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.Weather .temperature {
+  font-size: 64px;
+  font-weight: bold;
+  line-height: 64px;
+}
+
+.Weather img {
+  height: 64px;
+  width: 64px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.Weather .unit {
+  font-size: 16px;
+  position: relative;
+  top: -36px;
+  margin-left: 5px;
+  line-height: 1;
+}
