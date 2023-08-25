@@ -62,7 +62,7 @@ export default function Weather() {
           <h1 className="text-capitalize">{city}</h1>
           <ul>
             <li>
-              <FormattedDate dt={weatherData.date} />
+              <FormattedDate date={weatherData.date} />
             </li>
             <li className="text-capitalize">{weatherData.description}</li>
           </ul>
