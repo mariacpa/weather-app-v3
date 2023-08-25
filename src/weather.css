@@ -1,3 +1,16 @@
+.Weather {
+  padding: 20px;
+  border-radius: 4px;
+  background: radial-gradient(
+    328px at 2.9% 15%,
+    rgb(191, 224, 251) 0%,
+    rgb(232, 233, 251) 25.8%,
+    rgb(252, 239, 250) 50.8%,
+    rgb(234, 251, 251) 77.6%,
+    rgb(240, 251, 244) 100.7%
+  );
+}
+
 .Weather h1 {
   font-family: "Poppins", sans-serif;
   margin-top: 20px;
@@ -9,11 +22,6 @@
 
 .Weather ul {
   padding: 0;
-}
-
-.Weather {
-  padding: 20px;
-  border-radius: 4px;
 }
 
 .Weather .temperature {
@@ -35,4 +43,9 @@
   top: -36px;
   margin-left: 5px;
   line-height: 1;
+}
+
+.Weather .btn-primary-edited {
+  background-color: #d59bf6;
+  color: white;
 }
