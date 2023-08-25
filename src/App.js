@@ -6,10 +6,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <header></header>
-        <div>
-          <Weather defaultCity = "bogota"/>
-        </div>
+        <Weather defaultCity="bogota" />
         <footer className="App-footer">
           <a
             href="https://github.com/mariacpa/weather-app-v3"
