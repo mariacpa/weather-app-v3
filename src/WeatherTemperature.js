@@ -22,7 +22,7 @@ export default function WeatherTemperature(props) {
         <span className="unit">°C</span>
         <span className="unit"> | </span>
         <span className="unit fw-semibold">
-          <a onClick={convertF} href="_blank">
+          <a onClick={convertF} href="_blank" rel="noreferrer">
             °F
           </a>
         </span>
@@ -35,7 +35,7 @@ export default function WeatherTemperature(props) {
         <span className="unit">°F</span>
         <span className="unit"> | </span>
         <span className="unit fw-semibold">
-          <a onClick={convertC} href="_blank">
+          <a onClick={convertC} href="_blank" rel="noreferrer">
             °C
           </a>
         </span>
