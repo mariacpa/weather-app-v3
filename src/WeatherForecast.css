@@ -1,0 +1,22 @@
+.WeatherForecast {
+  text-align: center;
+}
+
+.WeatherForecast-col {
+  cursor: pointer;
+  padding: 10px;
+}
+
+.WeatherForecast-col:hover {
+  background-color: #ebeafb;
+  border-radius: 4px;
+}
+
+.WeatherForecast-min {
+  color: #d59bf6;
+  margin-left: 5px;
+}
+
+.WeatherForecast-day {
+  font-family: "Poppins", sans-serif;
+}
