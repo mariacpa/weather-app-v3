@@ -1,35 +1,50 @@
-import React from "react";
-import WeatherIcons from "./WeatherIcons";
+import React, { useState } from "react";
+import WeatherForecastDay from "./WeatherForecastDay";
 import axios from "axios";
 
 import "./WeatherForecast.css";
 
 export default function WeatherForecast(props) {
+  const [forecastData, setForecastData] = useState(null);
+  const [ready, setReady] = useState(false);
+
   function handleResponse(response) {
-    console.log(response.data);
+    setReady(true);
+    setForecastData(response.data.daily);
   }
 
-  let lat = props.coordinates.lat;
-  let lon = props.coordinates.lon;
-  let apiKey = "bc5ca568ee2d7c71357ca430a3ff8705";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  function searchForecast() {
+    let lat = props.coordinates.lat;
+    let lon = props.coordinates.lon;
+    let apiKey = "bc5ca568ee2d7c71357ca430a3ff8705";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
 
-  axios.get(apiUrl).then(handleResponse);
-
-  return (
-    <div className="WeatherForecast">
-      <div className="row">
-        <div className="col WeatherForecast-col">
-          <div className="WeatherForecast-day fw-semibold">Thu</div>
-          <div className="WeatherForecast-icon">
-            <WeatherIcons code="10d" size="30" />
+  if (ready) {
+    return (
+      <div className="WeatherForecast">
+        <div className="row">
+          <div className="col WeatherForecast-col">
+            <WeatherForecastDay forecast={forecastData[1]} />
           </div>
-          <div className="WeatherForecast-temp">
-            <span className="WeatherForecast-max fw-semibold">20°</span>
-            <span className="WeatherForecast-min">10°</span>
+          <div className="col WeatherForecast-col">
+            <WeatherForecastDay forecast={forecastData[2]} />
+          </div>
+          <div className="col WeatherForecast-col">
+            <WeatherForecastDay forecast={forecastData[3]} />
+          </div>
+          <div className="col WeatherForecast-col">
+            <WeatherForecastDay forecast={forecastData[4]} />
+          </div>
+          <div className="col WeatherForecast-col">
+            <WeatherForecastDay forecast={forecastData[5]} />
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    searchForecast();
+    return "Loading...";
+  }
 }
