@@ -9,13 +9,11 @@ export default function WeatherForecastDay(props) {
     return days[day];
   }
 
-  console.log(props.forecast.weather[0].icon);
-
   return (
     <div>
       <div className="WeatherForecast-day fw-semibold">{date()}</div>
       <div className="WeatherForecast-icon">
-        <WeatherIcons code={props.forecast.weather[0].icon} size="30" />
+        <WeatherIcons code={props.forecast.weather[0].icon} size={30} />
       </div>
       <div className="WeatherForecast-temp">
         <span className="WeatherForecast-max fw-semibold">
