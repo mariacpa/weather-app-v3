@@ -9,6 +9,8 @@ export default function WeatherForecastDay(props) {
     return days[day];
   }
 
+  console.log(props.forecast.weather[0].icon);
+
   return (
     <div>
       <div className="WeatherForecast-day fw-semibold">{date()}</div>

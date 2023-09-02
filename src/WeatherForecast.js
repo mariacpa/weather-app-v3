@@ -25,26 +25,20 @@ export default function WeatherForecast(props) {
     return (
       <div className="WeatherForecast">
         <div className="row">
-          <div className="col WeatherForecast-col">
-            <WeatherForecastDay forecast={forecastData[1]} />
-          </div>
-          <div className="col WeatherForecast-col">
-            <WeatherForecastDay forecast={forecastData[2]} />
-          </div>
-          <div className="col WeatherForecast-col">
-            <WeatherForecastDay forecast={forecastData[3]} />
-          </div>
-          <div className="col WeatherForecast-col">
-            <WeatherForecastDay forecast={forecastData[4]} />
-          </div>
-          <div className="col WeatherForecast-col">
-            <WeatherForecastDay forecast={forecastData[5]} />
-          </div>
+          {forecastData.map(function (dailyForecast, index) {
+            if (index > 0 && index < 6) {
+              return (
+                <div className="col WeatherForecast-col" key={index}>
+                  <WeatherForecastDay forecast={dailyForecast} />
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
     );
   } else {
     searchForecast();
-    return "Loading...";
+    return null;
   }
 }
