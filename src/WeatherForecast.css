@@ -3,13 +3,12 @@
 }
 
 .WeatherForecast-col {
-  cursor: pointer;
   padding: 10px;
 }
 
 .WeatherForecast-col:hover {
   background-color: #ebeafb;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .WeatherForecast-min {
